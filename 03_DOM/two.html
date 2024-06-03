@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head content -->
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <!-- Body content -->
+</body>
+<script>
+    // JavaScript code begins here
+
+    // Creating a new div element
+    const div = document.createElement('div');
+    // Output: <div></div>
+
+    // Logging the newly created div element
+    console.log(div);
+    // Output: <div></div>
+
+    // Adding a class name to the div element
+    div.className = "main";
+
+    // Generating a random ID for the div element
+    div.id = Math.round(Math.random() * 10 + 1);
+    // Example Output: If the random number generated is 5, then ID will be "5"
+
+    // Setting a title attribute for the div element
+    div.setAttribute("title", "generated title");
+    // Output: <div class="main" id="5" title="generated title"></div>
+
+    // Setting background color for the div element
+    div.style.backgroundColor = "green";
+
+    // Setting padding for the div element
+    div.style.padding = "12px";
+
+    // Creating a text node with content "Chai aur code"
+    const addText = document.createTextNode("Chai aur code");
+
+    // Appending the text node to the div element
+    div.appendChild(addText);
+    // Output: <div class="main" id="5" title="generated title" style="background-color: green; padding: 12px;">Chai aur code</div>
+
+    // Appending the div element to the body of the HTML document
+    document.body.appendChild(div);
+    // Output: The newly created div element is added to the body of the HTML document
+
+    // JavaScript code ends here
+</script>
+</html>

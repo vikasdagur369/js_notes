@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Javascript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // Function definition for sayDate
+    // This function takes a string argument 'str' and logs it to the console along with the current timestamp
+    const sayDate = function(str){
+        console.log(str, Date.now());
+    }
+
+    // Declare a variable to hold the interval ID
+    let intervalId;
+
+    // Adding an event listener to the button with the ID 'start'
+    // When the button is clicked, it sets an interval to call sayDate every 1000 milliseconds (1 second)
+    // The interval ID is stored in the variable intervalId
+    document.querySelector('#start').addEventListener('click', function() {
+        intervalId = setInterval(sayDate, 1000, "hi");
+        console.log("Interval started");
+    });
+
+    // Adding an event listener to the button with the ID 'stop'
+    // When the button is clicked, it clears the interval using the ID stored in intervalId
+    document.querySelector('#stop').addEventListener('click', function() {
+        clearInterval(intervalId);
+        console.log("Interval stopped");
+    });
+</script>
+</html>
+
+<!--
+    sayDate Function:
+
+javascript
+Copy code
+const sayDate = function(str){
+    console.log(str, Date.now());
+}
+This function, sayDate, takes a string argument str and logs it to the console along with the current timestamp using Date.now().
+Variable Declaration for Interval ID:
+
+javascript
+let intervalId;
+Declares a variable intervalId to store the ID of the interval. This ID is needed to clear the interval later.
+Start Button Event Listener:
+
+javascript
+
+document.querySelector('#start').addEventListener('click', function() {
+    intervalId = setInterval(sayDate, 1000, "hi");
+    console.log("Interval started");
+});
+Adds an event listener to the button with the ID start.
+When the "Start" button is clicked:
+setInterval(sayDate, 1000, "hi") is called, which sets an interval to execute the sayDate function every 1000 milliseconds (1 second) with the argument "hi".
+The interval ID returned by setInterval is stored in the intervalId variable.
+Logs "Interval started" to the console to indicate that the interval has been initiated.
+Stop Button Event Listener:
+
+javascript
+Copy code
+document.querySelector('#stop').addEventListener('click', function() {
+    clearInterval(intervalId);
+    console.log("Interval stopped");
+});
+Adds an event listener to the button with the ID stop.
+When the "Stop" button is clicked:
+clearInterval(intervalId) is called, which clears the interval using the ID stored in intervalId. This stops the repeated execution of sayDate.
+Logs "Interval stopped" to the console to indicate that the interval has been cleared.
+-->

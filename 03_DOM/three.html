@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head content -->
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <!-- Body content -->
+    <ul class="language">
+        <!-- Initial list item -->
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    // JavaScript code begins here
+
+    // Function to add a language to the list
+    function addLanguage(langName){
+        // Creating a new list item element
+        const li = document.createElement('li');
+        // Setting the inner HTML of the list item to the provided language name
+        li.innerHTML = `${langName}`;
+        // Appending the list item to the language list
+        document.querySelector('.language').appendChild(li);
+    }
+
+    // Adding languages to the list using the addLanguage function
+    addLanguage("python");
+    addLanguage("typescript");
+
+    // Function to add a language to the list in an optimized way
+    function addOptiLanguage(langName){
+        // Creating a new list item element
+        const li = document.createElement('li');
+        // Creating a text node with the provided language name
+        li.appendChild(document.createTextNode(langName));
+        // Appending the list item to the language list
+        document.querySelector('.language').appendChild(li);
+    }
+
+    // Adding a language to the list using the addOptiLanguage function
+    addOptiLanguage('golang');
+
+    // Editing the second language in the list
+    const secondLang = document.querySelector("li:nth-child(2)");
+    console.log(secondLang); // Output: <li>typescript</li>
+    // Replacing the second language with "Mojo"
+    const newli = document.createElement('li');
+    newli.textContent = "Mojo";
+    secondLang.replaceWith(newli);
+
+    // Editing the first language in the list
+    const firstLang = document.querySelector("li:first-child");
+    // Replacing the HTML content of the first language with "TypeScript"
+    firstLang.outerHTML = '<li>TypeScript</li>';
+
+    // Removing the last language from the list
+    const lastLang = document.querySelector('li:last-child');
+    lastLang.remove();
+
+    // JavaScript code ends here
+</script>
+</html>

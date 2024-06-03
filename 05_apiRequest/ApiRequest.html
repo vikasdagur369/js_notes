@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    <!-- Placeholder for displaying XMLHttpRequest readyState values -->
+    0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete.
+</body>
+<script>
+    // Define the URL for the XMLHttpRequest
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    
+    // Create a new XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+    
+    // Initialize the request with the HTTP method and URL
+    xhr.open('GET', requestUrl);
+    
+    // Define a callback function to handle state changes of the XMLHttpRequest
+    xhr.onreadystatechange = function(){
+        // Log the current readyState value of the XMLHttpRequest
+        console.log(xhr.readyState);
+        
+        // When the readyState value is 4 (DONE), handle the response
+        if (xhr.readyState === 4) {
+            // Parse the response text as JSON
+            const data = JSON.parse(this.responseText);
+            
+            // Log the type of data received and the number of followers
+            console.log(typeof data);
+            console.log(data.followers);
+        }
+    }
+    
+    // Send the XMLHttpRequest
+    xhr.send();
+</script>
+</html>
+
+

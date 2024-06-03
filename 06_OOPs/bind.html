@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    // Define a class named React
+    class React {
+        constructor(){
+            // Define properties for the React class
+            this.library = "React"; // Name of the library
+            this.server = "https://localhost:300"; // Server URL
+
+            // Requirement: Add a click event listener to the button
+            document
+                .querySelector('button') // Select the button element
+                .addEventListener('click', this.handleClick.bind(this)); // Bind the click event to the handleClick method and make sure 'this' refers to the React class instance
+        }
+
+        // Define a method to handle button clicks
+        handleClick(){
+            // Log a message indicating that the button was clicked
+            console.log("Button clicked");
+            // Log the server URL
+            console.log(this.server);
+        }
+    }
+
+    // Create an instance of the React class
+    const app = new React();
+</script>
+</html>
+
+<!--
+
+We define a class named React.
+In the constructor, we set two properties: library (with the value "React") and server (with the value "https://localhost:300").
+We add an event listener to the button using addEventListener. This listener calls the handleClick method when the button is clicked. 
+
+We use bind(this) to ensure that within handleClick, this refers to the instance of the React class.
+We define a method handleClick which logs a message saying "Button clicked" and logs the server property to the console.
+
+
+-->
